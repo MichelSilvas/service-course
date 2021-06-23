@@ -6,6 +6,7 @@ import {
   RecorderState,
   method,
 } from '@vtex/api'
+import { updateLiveUsers } from './event/liveUsersUpdate'
 import { Clients } from './clients'
 import { analytics } from './handlers/analytics'
 
@@ -37,4 +38,7 @@ export default new Service<Clients, State, ParamsContext>({
       GET: [analytics],
     }),
   },
+  events: {
+    liveUsersUpdate: updateLiveUsers
+  }
 })
